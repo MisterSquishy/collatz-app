@@ -13,6 +13,7 @@ input::-webkit-inner-spin-button {
   vertical-align:middle;
   display: table-cell;
   text-align: center;
+  background-color: #bbdefb;
 }
 
 .the-field {
