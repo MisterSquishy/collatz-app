@@ -1,0 +1,39 @@
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  vertical-align:middle;
+  display: table-cell;
+  text-align: center;
+}
+
+.the-field {
+  width: 20vw;
+  top: -10vh;
+  display: inline-block;
+}
+
+.the-field input {
+  font-size: 64px;
+  text-align: center;
+}
+
+.the-field p {
+  font-size: 32px;
+}
+
+.the-icon {
+  display: inline-block;
+}
+
+.the-icon svg {
+  font-size: 4rem;
+}
