@@ -38,3 +38,11 @@ input::-webkit-inner-spin-button {
 .the-icon svg {
   font-size: 4rem;
 }
+
+.past-value-list-container {
+  position: absolute;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}

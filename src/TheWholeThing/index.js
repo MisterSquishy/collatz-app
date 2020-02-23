@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField'
 import IconButton from '@material-ui/core/IconButton'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight'
@@ -7,7 +7,17 @@ import Confetti from 'react-confetti'
 const TheWholeThing = () => {
   const [ subtext, setSubtext ] = useState("Enter a number")
   const [ value, setValue ] = useState("")
+  const [ valueList, setValueList ] = useState([])
   const [ celebrate, setCelebrate ] = useState(false)
+
+  useEffect(() => {
+    if(valueList.length === 0) {
+      valueList.push(`Start: ${value}`)
+    } else {
+      valueList.push(`${value} ${subtext}`)
+    }
+    setValueList(valueList)
+  }, [ value, valueList, subtext ]);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -17,12 +27,12 @@ const TheWholeThing = () => {
 
   const handleChange = (event) => {
     setValue(event.target.value)
+    setValueList([])
     setCelebrate(false)
   }
 
   const handleClick = () => {
     const intValue = parseInt(value)
-    // todo rewrite to compute collatz value in separate function and do it first
     if (!intValue || intValue < 0) {
       setValue("")
       setSubtext("Enter a number")
@@ -67,6 +77,13 @@ const TheWholeThing = () => {
     >
       <ArrowRightIcon fontSize="inherit" />
     </IconButton>
+    <div className="past-value-list-container">
+      { valueList.slice(0).reverse().map(value =>
+        <div>
+          { value }
+        </div>)
+      }
+    </div>
   </>
 }
 
